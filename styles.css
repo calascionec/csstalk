@@ -1,0 +1,86 @@
+:root {
+    --main-font: 'Roboto';
+    --blue: #009DDC;
+    --green: #009B72;
+    --purple: #6761A8;
+    --orange: #F26430;
+    --text-color: #2A2D34;
+}
+
+* {
+    font-family: inherit;
+    line-height: inherit;
+    color: inherit;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--main-font);
+    color: var(--text-color);
+    font-size: 10px;
+}
+
+body {
+    height: 100vh;
+    font-size: 2rem;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--blue);
+}
+
+.swiper-slide {
+    display: flex;
+    padding: 50px;
+}
+
+.slide {
+    position: relative;
+    width: 100%;
+}
+
+
+/*
+.button
+*/
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 3px;
+    color: #fff;
+    background-color: var(--orange);
+    padding: .5em 2em;
+    transition: background-color .1s ease-in-out;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+    text-decoration: none;
+    background-color: var(--purple);
+}
+
+.button--large {
+    font-size: 1.5em;
+}
+
+.button--small {
+    font-size: .75em;
+}
+
+.button--green {
+    background-color: var(--green);
+}
+
+/*
+.citation
+*/
+
+.citation {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

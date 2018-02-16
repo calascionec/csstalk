@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CSS</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="swiper.min.css">
+        <link rel="stylesheet" href="prism.css">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Thoughs on how we write CSS</h1>
+
+                        <a class="button" href="#">Button</a>
+                        <a class="button button--small" href="#">Button</a>
+                        <a class="button button--large button--green" href="#">Button</a>
+<pre class="">
+<code class="language-html">
+&lt;a class="button" href="#"&gt;Button&lt;/a&gt;
+&lt;a class="button button--small" href="#"&gt;Button&lt;/a&gt;
+&lt;a class="button button--large button--green" href="#"&gt;Button&lt;/a&gt;
+</code>
+</pre>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Goals of Good Architecture</h1>
+                        <ul>
+                            <li>Predictable</li>
+                            <li>Reusable</li>
+                            <li>Maintainable</li>
+                            <li>Scalable</li>
+                        </ul>
+                        <div class="citation">
+                            <span class="citation__author">Philip Walton</span>
+                            <a class="citation__link" href="https://philipwalton.com/articles/css-architecture/">CSS Architecture</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Bad Practices</h1>
+                        <ul>
+                            <li>Modifying componentes based on who their parents are.</li>
+                            <li>Overly complicated selectors.</li>
+                            <li>Overly complicated selectors.</li>
+                            <li>Overly generic classnames.</li>
+                        </ul>
+                        <div class="citation">
+                            <span class="citation__author">Philip Walton</span>
+                            <a class="citation__link" href="https://philipwalton.com/articles/css-architecture/">CSS Architecture</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Best Practices</h1>
+                        <ul>
+                            <li>Be intentional</li>
+                            <li>Separate concerns</li>
+                            <li>Namspace classes</li>
+                            <li>Extend components with modifier classes</li>
+                            <li>Organize CSS in a logical structure</li>
+                        </ul>
+                        <div class="citation">
+                            <span class="citation__author">Philip Walton</span>
+                            <a class="citation__link" href="https://philipwalton.com/articles/css-architecture/">CSS Architecture</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>BEM</h1>
+                        <p>BEM is an abbreviation for the 3 elements of it's naming methodology: Block, Element, Modifier.</p>
+
+                        <h2>Benefits:</h2>
+                        <ul>
+                            <li>Modularity</li>
+                            <li>Reusability</li>
+                            <li>Structure</li>
+                        </ul>
+                        <div class="citation">
+                            <a class="citation__link" href="http://getbem.com/naming/">http://getbem.com/</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Block</h1>
+                        <p>Standalone entity that is meaningful on it's own. Blocks can exist inside other blocks but they are not dependent on any other blocks or elements on the page.</p>
+
+                        <div class="example">
+                            <a class="button" href="#">Button</a>
+                        </div>
+
+                        <div class="citation">
+                            <a class="citation__link" href="http://getbem.com/naming/">http://getbem.com/naming/</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Element</h1>
+                        <p>Part of a block and have no standalone meaning.</p>
+                        <div class="citation">
+                            <a class="citation__link" href="http://getbem.com/naming/">http://getbem.com/naming/</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Modifier</h1>
+                        <p>Flags placed on blocks or elements that change their appearance, behaviour, or state.</p>
+                        <div class="citation">
+                            <a class="citation__link" href="http://getbem.com/naming/">http://getbem.com/naming/</a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="swiper-slide">
+                    <article class="slide">
+                        <h1>Citations</h1>
+                    </article>
+                </div>
+
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+
+        <script src="swiper.min.js"></script>
+        <script src="scripts.js"></script>
+        <script src="prism.js"></script>
+        <script type="text/javascript">
+
+            var mySwiper = new Swiper ('.swiper-container', {
+
+              // If we need pagination
+              pagination: {
+                el: '.swiper-pagination',
+              },
+
+              // Navigation arrows
+              navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              },
+            })
+
+        </script>
+    </body>
+</html>
