@@ -18,22 +18,131 @@
                     </p>
                     <section class="section">
                         <h2>Flex Property Practice</h2>
-                        <div class="flexible-box-container">
-                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxOne.grow, 'flex-shrink': boxes.flexBoxOne.shrink, 'flex-basis': boxes.flexBoxOne.basis}">
+                        <div class="flexible-box-container" v-bind:style="{'justify-content': justifyContent, 'align-items': alignItems, 'flex-direction': flexDirection, 'flex-wrap': flexWrap, width: containerWidth, height: containerHeight}">
+                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxOne.grow, 'flex-shrink': boxes.flexBoxOne.shrink, 'flex-basis': boxes.flexBoxOne.basis, 'align-self': boxes.flexBoxOne.alignSelf}">
                                 Flexible Box 1
                             </div>
-                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxTwo.grow, 'flex-shrink': boxes.flexBoxTwo.shrink, 'flex-basis': boxes.flexBoxTwo.basis}">
+                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxTwo.grow, 'flex-shrink': boxes.flexBoxTwo.shrink, 'flex-basis': boxes.flexBoxTwo.basis, 'align-self': boxes.flexBoxTwo.alignSelf}">
                                 Flexible Box 2
                             </div>
-                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxThree.grow, 'flex-shrink': boxes.flexBoxThree.shrink, 'flex-basis': boxes.flexBoxThree.basis}">
+                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxThree.grow, 'flex-shrink': boxes.flexBoxThree.shrink, 'flex-basis': boxes.flexBoxThree.basis, 'align-self': boxes.flexBoxThree.alignSelf}">
                                 Flexible Box 3
                             </div>
-                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxFour.grow, 'flex-shrink': boxes.flexBoxFour.shrink, 'flex-basis': boxes.flexBoxFour.basis}">
+                            <div class="flexible-box" v-bind:style="{'flex-grow': boxes.flexBoxFour.grow, 'flex-shrink': boxes.flexBoxFour.shrink, 'flex-basis': boxes.flexBoxFour.basis, 'align-self': boxes.flexBoxFour.alignSelf}">
                                 Flexible Box 4
                             </div>
                         </div>
-                        <div class="flexible-box-form">
-                            <button type="button" v-on:click="reset();">Reset Defaults</button>
+
+                        <div class="form-wrapper">
+                            <div class="form-group-wrapper">
+                                <h3>Flex Container Properties</h3>
+                                <div class="form-group">
+                                    <label for="container-width">Flex Container Width</label>
+                                    <input v-model="containerWidth" id="container-width" type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label for="container-height">Flex Container Height</label>
+                                    <input v-model="containerHeight" id="container-height" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button class="button" type="button" v-on:click="resetFlexContainer();">Reset Defaults</button>
+                        </div>
+
+                        <div class="form-wrapper">
+                            <div class="form-group-wrapper">
+                                <h3>flex-direction</h3>
+                                <div class="form-group">
+                                    <label for="flex-row">row</label>
+                                    <input v-model="flexDirection" id="flex-row" type="radio" name="flex-direction" value="row">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flex-row-reverse">row-reverse</label>
+                                    <input v-model="flexDirection" id="flex-row-reverse" type="radio" name="flex-direction" value="row-reverse">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flex-column">column</label>
+                                    <input v-model="flexDirection" id="flex-column" type="radio" name="flex-direction" value="column">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flex-column-reverse">column-reverse</label>
+                                    <input v-model="flexDirection" id="flex-column-reverse" type="radio" name="flex-direction" value="column-reverse">
+                                </div>
+                            </div>
+                            <div class="form-group-wrapper">
+                                <h3>flex-wrap</h3>
+                                <div class="form-group">
+                                    <label for="nowrap">nowrap</label>
+                                    <input v-model="flexWrap" id="nowrap" type="radio" name="flex-wrap" value="nowrap">
+                                </div>
+                                <div class="form-group">
+                                    <label for="wrap">wrap</label>
+                                    <input v-model="flexWrap" id="wrap" type="radio" name="flex-wrap" value="wrap">
+                                </div>
+                                <div class="form-group">
+                                    <label for="wrap-reverse">wrap-reverse</label>
+                                    <input v-model="flexWrap" id="wrap-reverse" type="radio" name="flex-wrap" value="wrap-reverse">
+                                </div>
+                            </div>
+                            <div class="form-group-wrapper">
+                                <h3>justify-content</h3>
+                                <div class="form-group">
+                                    <label for="flex-start">flex-start</label>
+                                    <input v-model="justifyContent" id="flex-start" type="radio" name="justify-content" value="flex-start">
+                                </div>
+                                <div class="form-group">
+                                    <label for="flex-end">flex-end</label>
+                                    <input v-model="justifyContent" id="flex-end" type="radio" name="justify-content" value="flex-end">
+                                </div>
+                                <div class="form-group">
+                                    <label for="center">center</label>
+                                    <input v-model="justifyContent" id="center" type="radio" name="justify-content" value="center">
+                                </div>
+                                <div class="form-group">
+                                    <label for="space-between">space-between</label>
+                                    <input v-model="justifyContent" id="space-between" type="radio" name="justify-content" value="space-between">
+                                </div>
+                                <div class="form-group">
+                                    <label for="space-around">space-around</label>
+                                    <input v-model="justifyContent" id="space-around" type="radio" name="justify-content" value="space-around">
+                                </div>
+                                <div class="form-group">
+                                    <label for="space-evenly">space-evenly</label>
+                                    <input v-model="justifyContent" id="space-evenly" type="radio" name="justify-content" value="space-evenly">
+                                </div>
+                            </div>
+
+                            <div class="form-group-wrapper">
+                                <h3>align-items</h3>
+                                <div class="form-group">
+                                    <label for="align-stretch">stretch</label>
+                                    <input v-model="alignItems" id="align-stretch" type="radio" name="align-items" value="stretch">
+                                </div>
+                                <div class="form-group">
+                                    <label for="align-flex-start">flex-start</label>
+                                    <input v-model="alignItems" id="align-flex-start" type="radio" name="align-items" value="flex-start">
+                                </div>
+                                <div class="form-group">
+                                    <label for="align-flex-end">flex-end</label>
+                                    <input v-model="alignItems" id="align-flex-end" type="radio" name="align-items" value="flex-end">
+                                </div>
+                                <div class="form-group">
+                                    <label for="align-center">center</label>
+                                    <input v-model="alignItems" id="align-center" type="radio" name="align-items" value="center">
+                                </div>
+                                <div class="form-group">
+                                    <label for="align-baseline">baseline</label>
+                                    <input v-model="alignItems" id="align-baseline" type="radio" name="align-items" value="baseline">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="actions">
+                            <button class="button" type="button" v-on:click="resetFlexContainerFlexProperties();">Reset Defaults</button>
+                        </div>
+
+                        <div class="form-wrapper">
                             <div class="form-group-wrapper">
                                 <h3>Flexible Box 1</h3>
                                 <div class="form-group">
@@ -47,6 +156,33 @@
                                 <div class="form-group">
                                     <label for="flexible-box-1--flex-basis">flex-basis</label>
                                     <input v-model="boxes.flexBoxOne.basis" id="flexible-box-1--flex-basis" type="text" name="">
+                                </div>
+                                <div>
+                                    <h4>align-self</h4>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-auto">auto</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-auto" type="radio" name="flexible-box-1--align" value="auto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-flex-start">flex-start</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-flex-start" type="radio" name="flexible-box-1--align" value="flex-start">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-flex-end">flex-end</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-flex-end" type="radio" name="flexible-box-1--align" value="flex-end">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-center">center</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-center" type="radio" name="flexible-box-1--align" value="center">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-baseline">baseline</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-baseline" type="radio" name="flexible-box-1--align" value="baseline">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-1--align-stretch">stretch</label>
+                                        <input v-model="boxes.flexBoxOne.alignSelf" id="flexible-box-1--align-stretch" type="radio" name="flexible-box-1--align" value="stretch">
+                                    </div>
                                 </div>
                             </div>
 
@@ -64,6 +200,33 @@
                                     <label for="flexible-box-2--flex-basis">flex-basis</label>
                                     <input v-model="boxes.flexBoxTwo.basis" id="flexible-box-2--flex-basis" type="text" name="">
                                 </div>
+                                <div>
+                                    <h4>align-self</h4>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-auto">auto</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-auto" type="radio" name="flexible-box-2--align" value="auto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-flex-start">flex-start</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-flex-start" type="radio" name="flexible-box-2--align" value="flex-start">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-flex-end">flex-end</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-flex-end" type="radio" name="flexible-box-2--align" value="flex-end">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-center">center</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-center" type="radio" name="flexible-box-2--align" value="center">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-baseline">baseline</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-baseline" type="radio" name="flexible-box-2--align" value="baseline">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-2--align-stretch">stretch</label>
+                                        <input v-model="boxes.flexBoxTwo.alignSelf" id="flexible-box-2--align-stretch" type="radio" name="flexible-box-2--align" value="stretch">
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-group-wrapper">
@@ -79,6 +242,33 @@
                                 <div class="form-group">
                                     <label for="flexible-box-3--flex-basis">flex-basis</label>
                                     <input v-model="boxes.flexBoxThree.basis" id="flexible-box-3--flex-basis" type="text" name="">
+                                </div>
+                                <div>
+                                    <h4>align-self</h4>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-auto">auto</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-auto" type="radio" name="flexible-box-3--align" value="auto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-flex-start">flex-start</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-flex-start" type="radio" name="flexible-box-3--align" value="flex-start">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-flex-end">flex-end</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-flex-end" type="radio" name="flexible-box-3--align" value="flex-end">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-center">center</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-center" type="radio" name="flexible-box-3--align" value="center">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-baseline">baseline</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-baseline" type="radio" name="flexible-box-3--align" value="baseline">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-3--align-stretch">stretch</label>
+                                        <input v-model="boxes.flexBoxThree.alignSelf" id="flexible-box-3--align-stretch" type="radio" name="flexible-box-3--align" value="stretch">
+                                    </div>
                                 </div>
                             </div>
 
@@ -96,7 +286,40 @@
                                     <label for="flexible-box-4--flex-basis">flex-basis</label>
                                     <input v-model="boxes.flexBoxFour.basis" id="flexible-box-4--flex-basis" type="text" name="">
                                 </div>
+                                <div>
+                                    <h4>align-self</h4>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-auto">auto</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-auto" type="radio" name="flexible-box-4--align" value="auto">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-flex-start">flex-start</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-flex-start" type="radio" name="flexible-box-4--align" value="flex-start">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-flex-end">flex-end</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-flex-end" type="radio" name="flexible-box-4--align" value="flex-end">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-center">center</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-center" type="radio" name="flexible-box-4--align" value="center">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-baseline">baseline</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-baseline" type="radio" name="flexible-box-4--align" value="baseline">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="flexible-box-4--align-stretch">stretch</label>
+                                        <input v-model="boxes.flexBoxFour.alignSelf" id="flexible-box-4--align-stretch" type="radio" name="flexible-box-4--align" value="stretch">
+                                    </div>
+                                </div>
                             </div>
+                        </div>
+                        <div class="actions">
+                            <button class="button" type="button" v-on:click="resetFlexItems();">Reset Defaults</button>
+                        </div>
+                        <div class="actions">
+                            <button class="button button--secondary" type="button" v-on:click="resetAll();">Reset All Defaults</button>
                         </div>
                     </section>
 
@@ -199,7 +422,7 @@
                         </div>
                     </section>
 
-                    <section>
+                    <section class="section">
                         <h2>Layouts With Grid</h2>
                         <div class="layout-wrapper">
                             <h3>E-conolight Example</h3>

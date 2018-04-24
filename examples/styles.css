@@ -12,10 +12,25 @@
 
     --flex--gutter: 30px;
     --content--color: tomato;
+    --button--primary-color: #7CEA9C;
+    --button--secondary-color: #393E41;
 }
 
 input {
     border: 2px solid var(--input--border-color);
+}
+
+.button {
+    padding: 1em;
+    background-color: var(--button--primary-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button--secondary {
+    background-color: var(--button--secondary-color);
+    color: #fff;
 }
 
 .container {
@@ -30,8 +45,8 @@ input {
 .flexible-box-container {
     border: 2px solid var(--container--border-color);
     border-radius: 5px;
-
     display: flex;
+    margin-bottom: 25px;
 }
 
 .flexible-box {
@@ -50,6 +65,11 @@ input {
 
 .flexible-box:nth-of-type(4) {
     background-color: var(--flexible-box--color-4);
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: space-between;
 }
 
 /*Flexbox Examples*/
