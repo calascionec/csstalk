@@ -4,10 +4,10 @@
 
 :root {
     --container--border-color: #000;
-    --flexible-box--color-1: #E94F37;
-    --flexible-box--color-2: #3F88C5;
-    --flexible-box--color-3: #44BBA4;
-    --flexible-box--color-4: #393E41;
+    --color-1: #E94F37;
+    --color-2: #3F88C5;
+    --color-3: #44BBA4;
+    --color-4: #393E41;
     --input--border-color: #eee;
 
     --flex--gutter: 30px;
@@ -50,21 +50,21 @@ input {
 }
 
 .flexible-box {
-    background-color: var(--flexible-box--color-1);
+    background-color: var(--color-1);
     padding: 2em;
     color: #fff;
 }
 
 .flexible-box:nth-of-type(2) {
-    background-color: var(--flexible-box--color-2);
+    background-color: var(--color-2);
 }
 
 .flexible-box:nth-of-type(3) {
-    background-color: var(--flexible-box--color-3);
+    background-color: var(--color-3);
 }
 
 .flexible-box:nth-of-type(4) {
-    background-color: var(--flexible-box--color-4);
+    background-color: var(--color-4);
 }
 
 .form-wrapper {
@@ -163,6 +163,110 @@ input {
     grid-area: 1 / 1 / 3 / 3;
 }
 
+.grid--three {
+    grid-gap: 0;
+    grid-template-columns: 62.2% 12.7% 1fr;
+    grid-template-areas: 'first second second'
+                         'first third fourth'
+                         'fifth sixth fourth'
+}
+
+.grid--three .grid-content-placeholder:first-of-type {
+    grid-area: first;
+    background-color: var(--color-1);
+}
+
+.grid--three .grid-content-placeholder:first-of-type:before {
+    padding-top: 50%;
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(2) {
+    grid-area: second;
+    background-color: var(--color-2);
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(3) {
+    grid-area: third;
+    background-color: var(--color-3);
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(4) {
+    grid-area: fourth;
+    background-color: var(--color-4);
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(5) {
+    grid-area: fifth;
+    background-color: var(--color-2);
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(6) {
+    grid-area: sixth;
+    background-color: var(--color-1);
+}
+
 .grid-content-placeholder {
     --content--color: lightblue;
+    width: 100%;
+}
+
+.placeholder {
+    width: 100%;
+    background-color: lightblue;
+    border: 1px solid gray;
+}
+
+.placeholder--1 {
+    padding-bottom: 80%;
+}
+
+.placeholder--2 {
+    padding-bottom: 102%;
+}
+
+.placeholder--3 {
+    padding-bottom: 96.7%;
+}
+
+.placeholder--4 {
+    padding-bottom: 90.8%;
+}
+
+.placeholder--5 {
+    padding-bottom: 20%;
+}
+
+.placeholder--6 {
+    padding-bottom: 96.7%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex .placeholder--1 {
+    flex: 1;
+}
+
+.side-1 {
+    flex: 1 1 62%;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-2 {
+    flex: 1 1 38%;
+}
+
+.side-2__bottom {
+    display: flex;
+}
+
+.side-2__column-1 {
+    flex: 1 1 33.5%;
+}
+
+.side-2__column-2 {
+    flex: 1 1 66.5%;
+    display: flex;
 }
