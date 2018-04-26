@@ -6,25 +6,29 @@
         el: '#app',
         data: {
             boxes: {
-                flexBoxOne: {
+                flexBox1: {
+                    name: "Flexible Box 1",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
                     alignSelf: 'auto'
                 },
-                flexBoxTwo: {
+                flexBox2: {
+                    name: "Flexible Box 2",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
                     alignSelf: 'auto'
                 },
-                flexBoxThree: {
+                flexBox3: {
+                    name: "Flexible Box 3",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
                     alignSelf: 'auto'
                 },
-                flexBoxFour: {
+                flexBox4: {
+                    name: "Flexible Box 4",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
@@ -39,6 +43,28 @@
             containerHeight: 'auto',
         },
         methods: {
+            createNewFlexItem: function() {
+                let numberOfFlexItems = Object.keys(this.boxes).length;
+                let nextFlexItemNumber = numberOfFlexItems + 1;
+                Vue.set(this.boxes,
+                        ["flexBox" + (nextFlexItemNumber)],
+                        {
+                            name: "Flexible Box " + nextFlexItemNumber,
+                            grow: 0,
+                            shrink: 1,
+                            basis: 'auto',
+                            alignSelf: 'auto'
+                        }
+                    );
+            },
+            removeLastFlexItem: function () {
+                let numberOfFlexItems = Object.keys(this.boxes).length;
+                if (numberOfFlexItems) {
+                    Vue.delete(this.boxes, ["flexBox" + (numberOfFlexItems)]);
+                } else {
+                    alert("No Boxes to delete");
+                }
+            },
             resetFlexItems: function () {
                 for (let box in this.boxes) {
                     this.boxes[box].grow = 0;
