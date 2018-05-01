@@ -58,6 +58,7 @@ input {
 .container-2 {
     padding: 30px;
     margin: 0 auto;
+    max-width: 100ch;
 }
 
 @media (min-width: 768px) {
