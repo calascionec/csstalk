@@ -24,10 +24,17 @@
 
 body {
     margin: 0;
+    font-family: 'Roboto';
 }
 
 input {
     border: 2px solid var(--input--border-color);
+}
+
+.img-responsive {
+    max-width: 100%;
+    display: block;
+    height: auto;
 }
 
 .button {
@@ -48,6 +55,11 @@ input {
     margin: 0 auto;
 }
 
+.container-2 {
+    padding: 30px;
+    margin: 0 auto;
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 90%;
@@ -57,7 +69,10 @@ input {
 .section {
     padding: 100px 0;
     overflow: hidden;
-    /* overflow: scroll; */
+}
+
+.form-group {
+    margin-bottom: calc(var(--gutter) / 2);
 }
 
 .flexible-box-container {
@@ -68,20 +83,25 @@ input {
 }
 
 .flexible-box {
+    padding: 2em;
+    color: #fff;
+}
+
+.flexible-box:nth-of-type(4n) {
     background-color: var(--color-1);
     padding: 2em;
     color: #fff;
 }
 
-.flexible-box:nth-of-type(2) {
+.flexible-box:nth-of-type(4n+1) {
     background-color: var(--color-2);
 }
 
-.flexible-box:nth-of-type(3) {
+.flexible-box:nth-of-type(4n+2) {
     background-color: var(--color-3);
 }
 
-.flexible-box:nth-of-type(4) {
+.flexible-box:nth-of-type(4n+3) {
     background-color: var(--color-4);
 }
 
@@ -89,13 +109,10 @@ input {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-gap: var(--gutter);
+    margin-top: var(--gutter);
 }
 
 /*Flexbox Examples*/
-
-.flex-grid {
-    /* padding: 0 calc(var(--gutter) / 2); */
-}
 
 .flex-row {
     display: flex;
@@ -282,67 +299,6 @@ input {
     background-color: var(--color-1);
 }
 
-.grid--three {
-    grid-gap: 0;
-    /* grid-template-columns: 62.2% 12.7% 1fr; */
-    /* grid-template-areas: 'first second second'
-                         'first third fourth'
-                         'fifth sixth fourth'; */
-    grid-template-columns: repeat(auto-fit, minmax(183px, 1fr));
-    grid-template-rows: repeat(5, minmax(177px, 1fr));
-}
-
-.grid--three .grid-content-placeholder:first-of-type {
-    /* grid-area: 1 / 1 / 5 / 6; */
-    background-color: var(--color-1);
-    grid-column: 1 / span 5;
-    grid-row: 1 / span 4;
-}
-
-.grid--three .grid-content-placeholder:first-of-type:before {
-    padding-top: 50%;
-}
-
-.grid--three .grid-content-placeholder:nth-of-type(2) {
-    /* grid-area: 5 / 1 / 6 / 6; */
-    background-color: var(--color-2);
-    grid-column: 1 / span 5;
-    grid-row: 5 / span 1;
-}
-
-.grid--three .grid-content-placeholder:nth-of-type(3) {
-    /* grid-area: 1 / 6 / 4 / 9; */
-    background-color: var(--color-3);
-    grid-column: 6 / span 3;
-    grid-row: 1 / span 3;
-}
-
-.grid--three .grid-content-placeholder:nth-of-type(4) {
-    /* grid-area: 4 / 6 / 5 / 7; */
-    background-color: var(--color-4);
-    grid-column: 6 / span 1;
-    grid-row: 4 / span 1;
-}
-
-.grid--three .grid-content-placeholder:nth-of-type(5) {
-    /* grid-area: 5 / 6 / 6 / 7; */
-    background-color: var(--color-3);
-    grid-column: 6 / span 1;
-    grid-row: 5 / span 1;
-}
-
-.grid--three .grid-content-placeholder:nth-of-type(6) {
-    /* grid-area: 4 / 7 / 6 / 9; */
-    background-color: var(--color-1);
-    grid-column: 7 / span 2;
-    grid-row: 4 / span 2;
-}
-
-.grid-content-placeholder {
-    --content--color: lightblue;
-    width: 100%;
-}
-
 .placeholder {
     width: 100%;
 }
@@ -368,8 +324,14 @@ input {
 }
 
 .placeholder--5 {
-    padding-bottom: 19.85%;
+    padding-bottom: 33%;
     background-color: var(--color-4);
+}
+
+@media (min-width: 768px) {
+    .placeholder--5 {
+        padding-bottom: 19.85%;
+    }
 }
 
 .placeholder--6 {
@@ -379,6 +341,7 @@ input {
 
 .flex {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .flex .placeholder--1 {
@@ -392,7 +355,13 @@ input {
 }
 
 .side-2 {
-    flex: 1 1 38%;
+    flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+    .side-2 {
+        flex: 1 1 38%;
+    }
 }
 
 .side-2__bottom {
@@ -408,9 +377,108 @@ input {
     display: flex;
 }
 
+.grid--three {
+    grid-gap: 0;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 'a a a a a b b b'
+                         'a a a a a b b b'
+                         'a a a a a b b b'
+                         'a a a a a c d d'
+                         'e e e e e f d d'
+}
 
-@media (max-width: 767px) {
-    .side-2 {
-        display: none;
+.grid--three .grid-content-placeholder:first-of-type {
+    background-color: var(--color-1);
+    grid-area: a;
+}
+
+
+.grid--three .grid-content-placeholder:nth-of-type(2) {
+    background-color: var(--color-2);
+    grid-area: b;
+}
+
+
+.grid--three .grid-content-placeholder:nth-of-type(3) {
+    background-color: var(--color-3);
+    grid-area: c;
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(4) {
+    background-color: var(--color-4);
+    grid-area: d;
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(5) {
+    background-color: var(--color-3);
+    grid-area: e;
+}
+
+.grid--three .grid-content-placeholder:nth-of-type(6) {
+    background-color: var(--color-1);
+    grid-area: f;
+}
+
+.grid-content-placeholder {
+    --content--color: lightblue;
+    width: 100%;
+}
+
+.fluid-h1 {
+    font-size: 32px;
+    line-height: 1.25;
+    margin-bottom: 2em;
+}
+
+@media (min-width: 320px) {
+    .fluid-h1 {
+        font-size: calc(32px + (70 - 32) * ((100vw - 320px) / (1440 - 320)));
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .fluid-h1 {
+        font-size: 70px;
+    }
+}
+
+.fluid-paragraph {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (min-width: 320px) {
+    .fluid-paragraph {
+        font-size: calc(16px + (28 - 16) * ((100vw - 320px) / (1440 - 320)));
+    }
+}
+
+@media (min-width: 1440px) {
+    .fluid-paragraph {
+        font-size: 28px;
+    }
+}
+
+.fluid-box {
+    font-size: 20px;
+    padding: 2em;
+    background-color: tomato;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    margin: 2.5em auto;
+}
+
+@media (min-width: 320px) {
+    .fluid-box {
+        font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1440 - 320)));
+    }
+}
+
+@media (min-width: 1440px) {
+    .fluid-box {
+        font-size: 40px;
     }
 }

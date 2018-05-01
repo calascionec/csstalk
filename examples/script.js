@@ -11,28 +11,32 @@
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
-                    alignSelf: 'auto'
+                    alignSelf: 'auto',
+                    order: 0
                 },
                 flexBox2: {
                     name: "Flexible Box 2",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
-                    alignSelf: 'auto'
+                    alignSelf: 'auto',
+                    order: 0
                 },
                 flexBox3: {
                     name: "Flexible Box 3",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
-                    alignSelf: 'auto'
+                    alignSelf: 'auto',
+                    order: 0,
                 },
                 flexBox4: {
                     name: "Flexible Box 4",
                     grow: 0,
                     shrink: 1,
                     basis: 'auto',
-                    alignSelf: 'auto'
+                    alignSelf: 'auto',
+                    order: 0
                 }
             },
             justifyContent: 'flex-start',
@@ -53,7 +57,8 @@
                             grow: 0,
                             shrink: 1,
                             basis: 'auto',
-                            alignSelf: 'auto'
+                            alignSelf: 'auto',
+                            order: 0
                         }
                     );
             },
@@ -71,6 +76,7 @@
                     this.boxes[box].shrink = 1;
                     this.boxes[box].basis = 'auto';
                     this.boxes[box].alignSelf = 'auto';
+                    this.boxes[box].order= 0;
                 }
             },
 

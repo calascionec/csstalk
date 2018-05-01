@@ -17,10 +17,13 @@
                     <p>
                         Flex layout is similar to block layout. It lacks many of the more complex text- or document-centric properties that can be used in block layout, such as floats and columns. In return it gains simple and powerful tools for distributing space and aligning content in ways that web apps and complex web pages often need.
                     </p>
+                    <div class="">
+                        <img class="img-responsive" src="../images/flexbox.png" alt="">
+                    </div>
                     <section class="section">
                         <h2>Flex Property Practice</h2>
                         <div class="flexible-box-container" v-bind:style="{'justify-content': justifyContent, 'align-items': alignItems, 'flex-direction': flexDirection, 'flex-wrap': flexWrap, width: containerWidth, height: containerHeight}">
-                            <div v-for="box in boxes" class="flexible-box" v-bind:style="{'flex-grow': box.grow, 'flex-shrink': box.shrink, 'flex-basis': box.basis, 'align-self': box.alignSelf}">
+                            <div v-for="box in boxes" class="flexible-box" v-bind:style="{'flex-grow': box.grow, 'flex-shrink': box.shrink, 'flex-basis': box.basis, 'align-self': box.alignSelf, 'order': box.order}">
                                 {{box.name}}
                             </div>
                         </div>
@@ -151,6 +154,10 @@
                                 <div class="form-group">
                                     <label v-bind:for="index + '--flex-basis'">flex-basis</label>
                                     <input v-model="box.basis" v-bind:id="index + '--flex-basis'" type="text" name="">
+                                </div>
+                                <div class="form-group">
+                                    <label v-bind:for="index + '--flex-order'">flex-order</label>
+                                    <input v-model="box.order" v-bind:id="index + '--flex-order'" type="text" name="">
                                 </div>
                                 <div>
                                     <h4>align-self</h4>
